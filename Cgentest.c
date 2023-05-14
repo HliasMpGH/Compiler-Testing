@@ -22,7 +22,17 @@ int main() {
 
   int i = foo();
 
-  printf("i = %d\n", i);
-//  printf(__GNUC__); gcc version 12
+  
+  FILE *pipe;
+  char buffer[128];
+  pipe = popen("gcc --version","r");
 
+   if (pipe == NULL) {
+      printf("Failed to open pipe.\n");
+      return 1;
+   }
+
+   while (fgets(buffer, sizeof(buffer), pipe) != NULL) {
+      printf("%s", buffer);
+   }
 }

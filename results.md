@@ -18,3 +18,7 @@
 >std=c18: nothing<br>
 >std=c11 nothing<br>
 >std=gnu11: nothing
+
+# FINAL:
+c90 & c89 standards, since they are the oldest from the releases, seem to be<br>
+sensitive to type (syntax)bugs, while newer releases dont have that problem.

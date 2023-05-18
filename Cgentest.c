@@ -1,12 +1,7 @@
 
 /* 
   
-   gcc -std=c89           variable-declaration.c    # OK
-   gcc -std=c89 -pedantic variable-declaration.c    # warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
-   gcc -std=c90           variable-declaration.c    # OK
-   gcc -std=c90 -pedantic variable-declaration.c    # warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
-   gcc -std=c99           variable-declaration.c    # OK
-   gcc -std=c99 -pedantic variable-declaration.c    # OK
+GCC TESTING WITH DIFFERENT STANDARDS
 
 */
 
@@ -19,10 +14,10 @@ int foo() {
 int main() {
 
   printf("Hello world.\n");
+  int i = foo(); // may cause variable declaration error
+  printf("----------\n");
 
-  int i = foo();
-
-  
+  /* to print the gcc version - ignore
   FILE *pipe;
   char buffer[128];
   pipe = popen("gcc --version","r");
@@ -35,4 +30,5 @@ int main() {
    while (fgets(buffer, sizeof(buffer), pipe) != NULL) {
       printf("%s", buffer);
    }
+   */
 }
